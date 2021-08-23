@@ -55,8 +55,8 @@ app.get('/api/orders', (req, res) => {
 
 app.post('/api/orders', (req, res) => {
 	console.log("POST", req.body);
-
-	let newOrder = {id : nextOrderId, count : +req.body.count, cost : +req.body.cost};
+	
+	let newOrder = {id : nextOrderId, count : +req.body.count, cost : +req.body.cost, basket : req.body.basket};
 	orders.push(newOrder);
 	nextOrderId++;
 	res.send(newOrder);
